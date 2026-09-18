@@ -1,0 +1,3 @@
+const mongoose=require("mongoose");
+const schema=new mongoose.Schema({propertyId:{type:mongoose.Schema.Types.ObjectId,ref:"Property",required:true},tenantId:{type:mongoose.Schema.Types.ObjectId,ref:"User",required:true},ownerId:{type:mongoose.Schema.Types.ObjectId,ref:"User",required:true},moveInDate:Date,durationMonths:Number,totalAmount:Number,status:{type:String,enum:["pending","approved","rejected","cancelled","active","completed"],default:"pending"},paymentStatus:{type:String,enum:["unpaid","paid","refunded"],default:"unpaid"}},{timestamps:true});
+module.exports=mongoose.model("Booking",schema);
